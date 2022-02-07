@@ -51,6 +51,7 @@ export default function App() {
 
   // if-else based on if authenticated or not
   if (token) {
+    console.log(tracks);
     contentDisplayed = 
     <View style={styles.container}>
       <View style={styles.titleRow}>
@@ -73,7 +74,9 @@ export default function App() {
   };
 
   // given a track, render it as a Song component
-  const renderItem = (item, index) => (
+  const renderItem = (item, index) => {
+    
+    return (
     <Song 
       songIndex = {index}
       albumImage = {item.album.images[index].url}
@@ -81,8 +84,8 @@ export default function App() {
       artist = {item.artists[index].name}
       album = {item.album.name[index]}
       duration = { millisToMinutesAndSeconds(item.artists.duration_ms) }
-    />
-  );
+    />);
+};
 
   return (
     <SafeAreaView style={styles.container}>

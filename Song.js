@@ -9,7 +9,9 @@ import { Pressable, View, Image } from 'react-native';
 
 export default function Song({songIndex, albumImage, title, artist, album, duration}){
     return(
-          <Text style={styles.artist}>{artist}</Text>
+      <View style={styles.item}>
+        <Text style={styles.artist}>{artist}</Text>
+      </View>
     );
   }
 
@@ -18,6 +20,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'flex-start',
+        width: '100%',
       },
     
       albumImage: {
@@ -43,6 +46,8 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
         fontFamily: 'Thonburi',
         color: 'white',
+        backgroundColor: 'red',
+        width: '100%',
       },
     
       album: {
