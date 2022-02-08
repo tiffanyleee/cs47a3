@@ -83,10 +83,12 @@ export default function App() {
 
   } else {
     contentDisplayed = 
-      <Pressable onPress={promptAsync} style={styles.press}>
-        <Image style={styles.logo} source={require("./assets/spotify-logo.png")} />
-        <Text style={styles.connect}>CONNECT WITH SPOTIFY</Text>
-      </Pressable>  // "connect with spotify button"
+    <View style={styles.button}> 
+        <Pressable onPress={promptAsync} style={styles.press}>
+          <Image style={styles.logo} source={require("./assets/spotify-logo.png")} />
+          <Text style={styles.connect}>CONNECT WITH SPOTIFY</Text>
+        </Pressable>  
+    </View>
   };
 
 
@@ -101,12 +103,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.background,
-    justifyContent: "center",
-    alignItems: "center",
     flex: 1,
     height: '100%',
     width: '100%',
     resizeMode: 'contain',
+  },
+  
+  button: {
+    backgroundColor: Colors.background,
+    flex: 1,
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: "center",
+
   },
 
   press: {

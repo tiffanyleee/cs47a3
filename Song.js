@@ -31,52 +31,44 @@ const styles = StyleSheet.create({
       },
     
       numbering: {
-        flex: 1/4,
+        textAlignVertical: 'center',
+        width: '5%',
         color: 'grey',
       },
 
       albImg: {
-        flex: 1,
-        resizeMode: 'contain',
         backgroundColor: 'blue',
-        width: '100%',
-        height: '100%',
+        width: '20%',
       },
     
-      songinfo: {
-        flex: 3,
-        height: '100%',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
+      songInfo: {
+        padding: 5,
+        width: '35%',
       },
     
       song:{
-        flex: 2,
-        width: '100%',
-        textAlign: 'center',
+        flex: 1,
         textAlignVertical: 'center',
         fontFamily: 'Thonburi-Bold',
         color: 'white',
+        alignSelf: 'flex-start',
       },
     
       artist:{
         flex: 1,
-        textAlign: 'center',
         textAlignVertical: 'center',
         fontFamily: 'Thonburi',
         color: 'grey',
-        width: '100%',
       },
     
       album: {
-        flex: 1,
-        backgroundColor: 'green',
+        padding: 5,
+        width: '25%',
         color: 'white',
       },
     
       duration: {
-        flex: 1/2,
+        width: '10%',
         color: 'white',
-        backgroundColor: 'orange',
       },
 });
