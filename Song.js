@@ -10,13 +10,13 @@ import { Pressable, View, Image } from 'react-native';
 export default function Song({songIndex, albumImage, title, artist, album, duration}){
     return(
       <View style={styles.container}>
-          <Text style={styles.numbering}>{songIndex}</Text>
+          <Text style={styles.numbering}>{songIndex + 1}</Text>
           <Image style={styles.albImg} source={{uri: albumImage}} />  
           <View style={styles.songInfo}>
-            <Text style={styles.song}>{title}</Text>
-            <Text style={styles.artist}>{artist}</Text>
+            <Text style={styles.song} numberOfLines={1} ellipsizeMode="tail">{title}</Text>
+            <Text style={styles.artist} numberOfLines={1} ellipsizeMode="tail" >{artist}</Text>
           </View>
-          <Text style={styles.album}>{album}</Text>
+          <Text style={styles.album} numberOfLines={2} ellipsizeMode="tail">{album}</Text>
           <Text style={styles.duration}>{duration}</Text>
       </View>
       
@@ -25,37 +25,38 @@ export default function Song({songIndex, albumImage, title, artist, album, durat
 
 const styles = StyleSheet.create({
     container: {    
-        padding: 4,    
+        padding: 6,    
         flex: 1,
         flexDirection: 'row',
-        width: '100%',
-        backgroundColor: 'lightgrey',
-        justifyContent: 'flex-start',
       },
     
       numbering: {
-        color: 'black',
+        flex: 1/4,
+        color: 'grey',
       },
 
       albImg: {
         flex: 1,
         resizeMode: 'contain',
         backgroundColor: 'blue',
+        width: '100%',
+        height: '100%',
       },
     
       songinfo: {
-        flex: 2,
+        flex: 3,
+        height: '100%',
         flexDirection: 'row',
         justifyContent: 'flex-start',
       },
     
       song:{
-        flex: 1,
+        flex: 2,
+        width: '100%',
         textAlign: 'center',
         textAlignVertical: 'center',
         fontFamily: 'Thonburi-Bold',
         color: 'white',
-        backgroundColor:'purple',
       },
     
       artist:{
@@ -63,17 +64,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center',
         fontFamily: 'Thonburi',
-        color: 'white',
-        backgroundColor: 'red',
+        color: 'grey',
         width: '100%',
       },
     
       album: {
         flex: 1,
         backgroundColor: 'green',
+        color: 'white',
       },
     
       duration: {
+        flex: 1/2,
         color: 'white',
         backgroundColor: 'orange',
       },

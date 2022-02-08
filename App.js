@@ -31,6 +31,8 @@ export default function App() {
     discovery
   );
 
+
+
   useEffect(() => {
     if (response?.type === "success") {
       const { access_token } = response.params;
@@ -86,6 +88,7 @@ export default function App() {
         <Text style={styles.connect}>CONNECT WITH SPOTIFY</Text>
       </Pressable>  // "connect with spotify button"
   };
+
 
 
   return (
