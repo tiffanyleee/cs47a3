@@ -9,39 +9,57 @@ import { Pressable, View, Image } from 'react-native';
 
 export default function Song({songIndex, albumImage, title, artist, album, duration}){
     return(
-      <View style={styles.item}>
-        <Text style={styles.artist}>{artist}</Text>
+      <View style={styles.container}>
+          <Text style={styles.numbering}>{songIndex}</Text>
+          <Image style={styles.albImg} source={{uri: albumImage}} />  
+          <View style={styles.songInfo}>
+            <Text style={styles.song}>{title}</Text>
+            <Text style={styles.artist}>{artist}</Text>
+          </View>
+          <Text style={styles.album}>{album}</Text>
+          <Text style={styles.duration}>{duration}</Text>
       </View>
+      
     );
   }
 
 const styles = StyleSheet.create({
-    item: {
+    container: {    
+        padding: 4,    
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-start',
         width: '100%',
+        backgroundColor: 'lightgrey',
+        justifyContent: 'flex-start',
       },
     
-      albumImage: {
-        flex: 2,
+      numbering: {
+        color: 'black',
+      },
+
+      albImg: {
+        flex: 1,
         resizeMode: 'contain',
-        alignContent: 'center',
+        backgroundColor: 'blue',
       },
     
       songinfo: {
-        flexDirection: 'column',
-        flex: 5,
+        flex: 2,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
       },
     
       song:{
+        flex: 1,
         textAlign: 'center',
         textAlignVertical: 'center',
         fontFamily: 'Thonburi-Bold',
         color: 'white',
+        backgroundColor:'purple',
       },
     
       artist:{
+        flex: 1,
         textAlign: 'center',
         textAlignVertical: 'center',
         fontFamily: 'Thonburi',
@@ -51,10 +69,12 @@ const styles = StyleSheet.create({
       },
     
       album: {
-        flex: 2,
+        flex: 1,
+        backgroundColor: 'green',
       },
     
       duration: {
-        flex: 1,
+        color: 'white',
+        backgroundColor: 'orange',
       },
 });

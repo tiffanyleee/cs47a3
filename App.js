@@ -6,7 +6,7 @@ import { REDIRECT_URI, SCOPES, CLIENT_ID, ALBUM_ID } from "./utils/constants";
 import Colors from "./Themes/colors";
 import { Pressable, View, Image } from 'react-native';
 import Song from './Song';
-import { millisToMinutesAndSeconds } from "./utils/millisToMinuteSeconds";
+import  millisToMinutesAndSeconds  from "./utils/millisToMinuteSeconds";
 
 
 // Endpoints for authorizing with Spotify
@@ -47,11 +47,25 @@ export default function App() {
     }
   }, [token]);
 
+
   let contentDisplayed = null;
+
+    // given a track, render it as a Song component
+    const renderItem = ({item, index}) => {  
+      console.log(index); 
+      return (
+      <Song 
+        songIndex = {index}
+        albumImage = {item.album.images[0].url}
+        title = {item.name}
+        artist = {item.artists[0].name}
+        album = {item.album.name}
+        duration =  {millisToMinutesAndSeconds(item.duration_ms) }
+      />);
+  };
 
   // if-else based on if authenticated or not
   if (token) {
-    console.log(tracks);
     contentDisplayed = 
     <View style={styles.container}>
       <View style={styles.titleRow}>
@@ -73,19 +87,6 @@ export default function App() {
       </Pressable>  // "connect with spotify button"
   };
 
-  // given a track, render it as a Song component
-  const renderItem = (item, index) => {
-    
-    return (
-    <Song 
-      songIndex = {index}
-      albumImage = {item.album.images[index].url}
-      title = {item.id}
-      artist = {item.artists[index].name}
-      album = {item.album.name[index]}
-      duration = { millisToMinutesAndSeconds(item.artists.duration_ms) }
-    />);
-};
 
   return (
     <SafeAreaView style={styles.container}>
@@ -135,7 +136,8 @@ const styles = StyleSheet.create({
   titleRow: {
     flexDirection: 'row',
     backgroundColor: Colors.background,
-    alignItems: 'center',
+    justifyContent: 'center',
+    alignContent: 'center',
   },
 
   titleLogo: {
